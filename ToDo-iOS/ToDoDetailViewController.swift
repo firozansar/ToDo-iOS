@@ -9,12 +9,19 @@ import UIKit
 
 class ToDoDetailViewController: UIViewController {
     
-    var toDoCd = ToDoCD()
+    var toDoCd: ToDoCD?
     
     @IBOutlet weak var ToDoDetailLabel: UILabel!
     
     
     @IBAction func doneTapped(_ sender: Any) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let toDo = toDoCd {
+                context.delete(toDo)
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
+
         navigationController?.popViewController(animated: true)
     }
     
@@ -22,13 +29,15 @@ class ToDoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let name = toDoCd.name {
-            if(toDoCd.priority == 1){
-                ToDoDetailLabel.text = "❗️" + name
-            } else if(toDoCd.priority == 2){
-                ToDoDetailLabel.text = "‼️" + name
-            } else {
-                ToDoDetailLabel.text = name
+        if let name = toDoCd?.name {
+            if let priority = toDoCd?.priority {
+                if(priority == 1){
+                    ToDoDetailLabel.text = "❗️" + name
+                } else if(priority == 2){
+                    ToDoDetailLabel.text = "‼️" + name
+                } else {
+                    ToDoDetailLabel.text = name
+                }
             }
         }
 
