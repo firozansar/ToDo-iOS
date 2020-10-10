@@ -63,6 +63,10 @@ class ToDoTableViewController: UITableViewController {
                 cell.textLabel?.text = selectedTodo.name
             }
         }
+        
+        if let data = selectedTodo.image {
+            cell.imageView?.image = UIImage(data: data)
+        }
 
         return cell
     }
