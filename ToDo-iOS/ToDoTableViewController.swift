@@ -120,8 +120,8 @@ class ToDoTableViewController: UITableViewController {
         }
         
         if let detailViewController = segue.destination as? ToDoDetailViewController {
-            if let selectedToDo = sender as? ToDo{
-                detailViewController.toDo = selectedToDo
+            if let selectedToDo = sender as? ToDoCD{
+                detailViewController.toDoCd = selectedToDo
             }
         }
     }
