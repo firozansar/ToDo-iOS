@@ -9,27 +9,34 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
-    var todos: [ToDo] = []
+    var todocd: [ToDoCD] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let todo1 = ToDo()
-        todo1.name = "Shopping"
-        todo1.priority = 1
-        
-        let todo2 = ToDo()
-        todo2.name = "Cleaning"
-        todo2.priority = 2
-        
-        todos = [todo1, todo2]
-        
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getToDos()
+    }
+    
+    func getToDos(){
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let toDosFromCoreData = try? context.fetch(ToDoCD.fetchRequest()){
+                if let toDos = toDosFromCoreData as? [ToDoCD]{
+                    todocd = toDos
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+
+
 
     // MARK: - Table view data source
 
@@ -40,26 +47,28 @@ class ToDoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return todos.count
+        return todocd.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let selectedTodo = todos[indexPath.row]
-        if(selectedTodo.priority == 1){
-            cell.textLabel?.text = "❗️" + selectedTodo.name
-        } else if(selectedTodo.priority == 2){
-            cell.textLabel?.text = "‼️" + selectedTodo.name
-        } else {
-            cell.textLabel?.text = selectedTodo.name
+        let selectedTodo = todocd[indexPath.row]
+        if let name = selectedTodo.name {
+            if(selectedTodo.priority == 1){
+                cell.textLabel?.text = "❗️" + name
+            } else if(selectedTodo.priority == 2){
+                cell.textLabel?.text = "‼️" + name
+            } else {
+                cell.textLabel?.text = selectedTodo.name
+            }
         }
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedToDo = todos[indexPath.row]
+        let selectedToDo = todocd[indexPath.row]
         performSegue(withIdentifier: "moveToDetail", sender: selectedToDo)
     }
 
