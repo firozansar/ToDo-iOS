@@ -8,9 +8,13 @@
 import UIKit
 import CoreData
 
-class AddToDoViewController: UIViewController {
-
+class AddToDoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     var toDoTableViewController: ToDoTableViewController? = nil
+    
+    var imagePickerController = UIImagePickerController()
+    
+    @IBOutlet weak var ToDoImage: UIImageView!
     
     @IBOutlet weak var AddTextField: UITextField!
     
@@ -18,6 +22,16 @@ class AddToDoViewController: UIViewController {
     
     @IBOutlet weak var PrioritySegmentedControl: UISegmentedControl!
     
+    
+    @IBAction func cameraTapped(_ sender: Any) {
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func organizeTapped(_ sender: Any) {
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
     @IBAction func AddTapped(_ sender: Any) {
 //        let newToDo = ToDo()
@@ -33,6 +47,7 @@ class AddToDoViewController: UIViewController {
             if let name = AddTextField.text {
                 newToDo.name = name
             }
+            newToDo.image = ToDoImage.image?.jpegData(compressionQuality: 1.0)
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         }
     
@@ -41,10 +56,15 @@ class AddToDoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePickerController.delegate = self
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            ToDoImage.image = image
+        }
+        imagePickerController.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

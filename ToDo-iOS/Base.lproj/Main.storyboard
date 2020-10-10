@@ -126,6 +126,10 @@
                                     <action selector="AddTapped:" destination="dlJ-wo-G5e" eventType="touchUpInside" id="aow-74-kxu"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K3V-zb-ScF">
+                                <rect key="frame" x="86.165715590047512" y="443.99999999999994" width="239.99999999999977" height="128.00000000000006"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZBu-wd-Z9D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -139,11 +143,25 @@
                             <constraint firstItem="xny-SD-xzA" firstAttribute="top" secondItem="ZBu-wd-Z9D" secondAttribute="top" constant="20" id="wnu-1F-QXn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eSg-fv-tFN"/>
+                    <navigationItem key="navigationItem" id="eSg-fv-tFN">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="organize" id="t9H-Jd-8iU">
+                                <connections>
+                                    <action selector="organizeTapped:" destination="dlJ-wo-G5e" id="LNw-fC-WfW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="cHm-bX-MSg">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="dlJ-wo-G5e" id="qXO-qW-hUe"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="AddTextField" destination="yNV-ox-QwX" id="owh-aw-Ggc"/>
                         <outlet property="PriorityLabel" destination="gpy-O0-STs" id="vzz-8z-BaJ"/>
                         <outlet property="PrioritySegmentedControl" destination="Ot6-TZ-qjV" id="s0m-W9-Tg7"/>
+                        <outlet property="ToDoImage" destination="K3V-zb-ScF" id="H4e-TI-hc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71D-W2-bp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
