@@ -60,8 +60,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppV-nl-R2R">
-                                <rect key="frame" x="184" y="178.5" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppV-nl-R2R">
+                                <rect key="frame" x="188.5" y="178.5" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneTapped:" destination="Tmh-N9-HZD" eventType="touchUpInside" id="Lwu-pp-wPt"/>
@@ -75,6 +75,7 @@
                             <constraint firstItem="nfI-Tz-XVM" firstAttribute="centerX" secondItem="veO-vX-RxF" secondAttribute="centerX" id="DpG-O9-kHW"/>
                             <constraint firstItem="nfI-Tz-XVM" firstAttribute="top" secondItem="PXm-bz-SoP" secondAttribute="top" constant="20" id="bSC-TE-3dj"/>
                             <constraint firstItem="nfI-Tz-XVM" firstAttribute="leading" secondItem="PXm-bz-SoP" secondAttribute="leading" constant="20" id="gkU-r6-H3j"/>
+                            <constraint firstItem="ppV-nl-R2R" firstAttribute="centerX" secondItem="veO-vX-RxF" secondAttribute="centerX" id="lOk-Xe-tLi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hSm-SU-f70"/>

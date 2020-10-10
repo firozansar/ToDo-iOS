@@ -109,6 +109,12 @@ class ToDoTableViewController: UITableViewController {
         if let addToDoViewController = segue.destination as? AddToDoViewController {
             addToDoViewController.toDoTableViewController = self
         }
+        
+        if let detailViewController = segue.destination as? ToDoDetailViewController {
+            if let selectedToDo = sender as? ToDo{
+                detailViewController.toDo = selectedToDo
+            }
+        }
     }
     
 
