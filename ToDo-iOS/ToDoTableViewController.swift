@@ -57,6 +57,11 @@ class ToDoTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedToDo = todos[indexPath.row]
+        performSegue(withIdentifier: "moveToDetail", sender: selectedToDo)
+    }
 
 
     /*

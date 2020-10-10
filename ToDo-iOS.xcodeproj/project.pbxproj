@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0759F6CA2531AAA3005D2AA7 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759F6C92531AAA3005D2AA7 /* AddToDoViewController.swift */; };
+		0759F6CF2531B34D005D2AA7 /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759F6CE2531B34D005D2AA7 /* ToDoDetailViewController.swift */; };
 		079764B62530EF9300E0398D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079764B52530EF9300E0398D /* AppDelegate.swift */; };
 		079764B82530EF9300E0398D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079764B72530EF9300E0398D /* SceneDelegate.swift */; };
 		079764BD2530EF9300E0398D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079764BB2530EF9300E0398D /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0759F6C92531AAA3005D2AA7 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		0759F6CE2531B34D005D2AA7 /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewController.swift; sourceTree = "<group>"; };
 		079764B22530EF9300E0398D /* ToDo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		079764B52530EF9300E0398D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		079764B72530EF9300E0398D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				079764EE2530F19300E0398D /* ToDoTableViewController.swift */,
 				079764F32530F4BD00E0398D /* ToDo.swift */,
 				0759F6C92531AAA3005D2AA7 /* AddToDoViewController.swift */,
+				0759F6CE2531B34D005D2AA7 /* ToDoDetailViewController.swift */,
 			);
 			path = "ToDo-iOS";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				079764F42530F4BD00E0398D /* ToDo.swift in Sources */,
 				079764EF2530F19300E0398D /* ToDoTableViewController.swift in Sources */,
 				079764B62530EF9300E0398D /* AppDelegate.swift in Sources */,
+				0759F6CF2531B34D005D2AA7 /* ToDoDetailViewController.swift in Sources */,
 				0759F6CA2531AAA3005D2AA7 /* AddToDoViewController.swift in Sources */,
 				079764B82530EF9300E0398D /* SceneDelegate.swift in Sources */,
 			);
