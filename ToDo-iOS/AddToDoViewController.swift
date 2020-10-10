@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddToDoViewController: UIViewController {
 
@@ -19,13 +20,22 @@ class AddToDoViewController: UIViewController {
     
     
     @IBAction func AddTapped(_ sender: Any) {
-        let newToDo = ToDo()
-        newToDo.priority = PrioritySegmentedControl.selectedSegmentIndex
-        if let name = AddTextField.text {
-            newToDo.name = name
+//        let newToDo = ToDo()
+//        newToDo.priority = PrioritySegmentedControl.selectedSegmentIndex
+//        if let name = AddTextField.text {
+//            newToDo.name = name
+//        }
+//        toDoTableViewController?.todos.append(newToDo)
+//        toDoTableViewController?.tableView.reloadData()
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            let newToDo = ToDoCD(context: context)
+            newToDo.priority = Int32(PrioritySegmentedControl.selectedSegmentIndex)
+            if let name = AddTextField.text {
+                newToDo.name = name
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         }
-        toDoTableViewController?.todos.append(newToDo)
-        toDoTableViewController?.tableView.reloadData()
+    
         navigationController?.popViewController(animated: true)
     }
     
